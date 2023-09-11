@@ -1,4 +1,4 @@
-//validates a joi schema with values passed to it inside the res.params. 
+//validates a joi schema with values passed to it inside the req.params. 
 const validateParams = (schema) => (req, res, next) => {
     const result = schema.validate(req.params, { abortEarly: false });
     if (result.error) {
@@ -7,4 +7,4 @@ const validateParams = (schema) => (req, res, next) => {
     next();
   };
 
-  module.exports = validateParams();
+  module.exports = { validateParams };

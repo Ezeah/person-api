@@ -1,7 +1,10 @@
+const express = require('express');
 const UserController = require('../controllers/person.controller');
 const UserSchema = require('../schemas/person.schema');
-const express = require('express');
 const UserRouter = express.Router();
+
+const { validateBody } = require('../validators/body.validator');
+const { validateParams } = require('../validators/param.validator');
 
 // create a user
 UserRouter.post("/", [validateBody(UserSchema.createUser)], UserController.createUser);
