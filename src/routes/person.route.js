@@ -1,8 +1,7 @@
 const UserController = require('../controllers/person.controller');
 const UserSchema = require('../schemas/person.schema');
-const UserRouter = express.Router();
 const express = require('express');
-
+const UserRouter = express.Router();
 
 // create a user
 UserRouter.post("/", [validateBody(UserSchema.createUser)], UserController.createUser);
@@ -19,4 +18,4 @@ UserRouter.patch("/:user_id", [validateParams(UserSchema.userId), validateBody(U
 // delete user
 UserRouter.delete("/:user_id", [validateParams(UserSchema.userId)], UserController.deleteUser);
 
-module.exports = userTalentRouter;
+module.exports = UserRouter;
