@@ -1,4 +1,4 @@
-//validates a joi schema with values passed to it inside the res.body.
+//validates a joi schema with values passed to it inside the req.body.
 const validateBody = (schema, source='body') => (req, res, next) => {
     try {
       const result = schema.validate(req[source], { abortEarly: false });
@@ -17,4 +17,4 @@ const validateBody = (schema, source='body') => (req, res, next) => {
     }
   };
   
-  module.exports = validateBody();
+  module.exports = { validateBody };
